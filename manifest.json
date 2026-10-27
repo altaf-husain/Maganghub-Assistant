@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "MagangHub Assistant",
+  "version": "2.0",
+  "description": "Asisten pengisi otomatis laporan harian MagangHub.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "icons": {
+    "128": "icon.png"
+  },
+   "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Buka Asisten MagangHub"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.maganghub.kemnaker.go.id/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
